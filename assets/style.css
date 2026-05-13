@@ -356,6 +356,52 @@ h1, h2, h3, h4 {
 }
 .cta-box p{ margin: 0 0 12px; font-size: 14px; }
 
+/* ===== Breadcrumb ===== */
+.breadcrumb{
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+.breadcrumb .container{ padding: 10px 24px; }
+.breadcrumb ol{
+  list-style: none; margin: 0; padding: 0;
+  display: flex; align-items: center; gap: 4px;
+  flex-wrap: wrap;
+}
+.breadcrumb li{ color: var(--text-soft); }
+.breadcrumb li + li::before{ content: "›"; margin-right: 4px; color: var(--line); }
+.breadcrumb a{
+  color: var(--text-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.breadcrumb a:hover{ color: var(--accent-dark); }
+
+/* ===== Share box ===== */
+.share-box{
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  margin: 32px 0 0;
+}
+.share-label{
+  font-size: 13px; color: var(--text-soft);
+  margin: 0 0 12px; text-align: center;
+}
+.share-btns{
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+}
+.share-btn{
+  display: inline-flex; align-items: center;
+  padding: 8px 20px; border-radius: 4px;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none; color: #fff;
+  transition: opacity .2s;
+}
+.share-btn:hover{ opacity: .82; color: #fff; }
+.share-x   { background: #000; }
+.share-line{ background: #06c755; }
+.share-hb  { background: #008fde; }
+
 /* ===== Footer ===== */
 .site-footer{
   background: var(--text); color: var(--bg);
