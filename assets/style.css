@@ -1,0 +1,320 @@
+/* ========================================
+   BAG NOTE — Shared Stylesheet
+   ベージュ × ブラウン基調のファッション系デザイン
+   ======================================== */
+
+:root{
+  --bg: #faf7f2;
+  --bg-soft: #f3ede4;
+  --text: #3a2e26;
+  --text-soft: #6b5b50;
+  --accent: #c9a961;
+  --accent-dark: #a98a3f;
+  --line: #e5dcd0;
+  --white: #ffffff;
+  --max: 1080px;
+  --radius: 6px;
+  --shadow: 0 4px 16px rgba(58, 46, 38, .06);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--text); text-decoration: none; transition: color .15s; }
+a:hover { color: var(--accent-dark); }
+
+h1, h2, h3, h4 {
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1.4;
+}
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+/* ===== Header ===== */
+.site-header{
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 50;
+}
+.site-header .inner{
+  max-width: var(--max); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+}
+.site-logo{
+  font-family: "Noto Serif JP", serif;
+  font-size: 22px; font-weight: 700;
+  letter-spacing: .12em;
+}
+.site-logo small{
+  display: block; font-size: 10px; letter-spacing: .3em;
+  color: var(--text-soft); font-family: "Noto Sans JP", sans-serif;
+  margin-top: 2px;
+}
+.site-nav{ display: flex; gap: 24px; }
+.site-nav a{ font-size: 14px; color: var(--text-soft); }
+.site-nav a:hover{ color: var(--accent-dark); }
+
+@media (max-width: 720px){
+  .site-nav{ gap: 14px; }
+  .site-nav a{ font-size: 12px; }
+}
+
+/* ===== Hero ===== */
+.hero{
+  background: linear-gradient(135deg, #f3ede4 0%, #faf7f2 100%);
+  padding: 80px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.hero h1{
+  font-size: clamp(24px, 4vw, 36px);
+  margin: 0 0 12px;
+}
+.hero p{
+  color: var(--text-soft);
+  font-size: 14px;
+  letter-spacing: .15em;
+  margin: 0;
+}
+.hero .divider{
+  display: inline-block; width: 40px; height: 1px;
+  background: var(--accent); margin: 20px 0;
+}
+
+/* ===== Section ===== */
+.section{ padding: 60px 0; }
+.section-title{
+  text-align: center; margin: 0 0 8px;
+  font-size: 24px;
+}
+.section-sub{
+  text-align: center; color: var(--text-soft);
+  font-size: 12px; letter-spacing: .3em;
+  text-transform: uppercase; margin: 0 0 32px;
+}
+
+/* ===== Category grid ===== */
+.category-grid{
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.category-tile{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+.category-tile:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+.category-tile .ico{
+  font-size: 28px; margin-bottom: 8px;
+}
+.category-tile .name{ font-size: 14px; font-weight: 600; }
+.category-tile .count{ font-size: 11px; color: var(--text-soft); margin-top: 4px; }
+
+@media (max-width: 720px){
+  .category-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== Article cards ===== */
+.article-grid{
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.article-card{
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: transform .2s, box-shadow .2s;
+}
+.article-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
+.article-card .thumb{
+  width: 100%; aspect-ratio: 16/10;
+  background: linear-gradient(135deg, var(--bg-soft), var(--accent) 200%);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-family: "Noto Serif JP", serif;
+  font-size: 18px; text-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.article-card .thumb.brown{ background: linear-gradient(135deg, #3a2e26, #6b5b50); }
+.article-card .thumb.beige{ background: linear-gradient(135deg, #c9a961, #faf7f2); color:#3a2e26; text-shadow:none; }
+.article-card .body{ padding: 16px 18px 20px; }
+.article-card .cat{
+  display: inline-block; font-size: 10px; letter-spacing: .2em;
+  color: var(--accent-dark); margin-bottom: 6px;
+}
+.article-card h3{
+  font-size: 15px; margin: 0 0 8px; line-height: 1.5;
+}
+.article-card p{
+  font-size: 12px; color: var(--text-soft); margin: 0;
+}
+
+@media (max-width: 720px){
+  .article-grid{ grid-template-columns: 1fr; }
+}
+
+/* ===== Article page ===== */
+.article-page{ max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.article-page .meta{
+  font-size: 12px; color: var(--text-soft); letter-spacing: .15em;
+  margin: 32px 0 8px;
+}
+.article-page .meta .cat{ color: var(--accent-dark); margin-right: 8px; }
+.article-page h1{
+  font-size: clamp(22px, 3.5vw, 30px);
+  line-height: 1.5; margin: 0 0 16px;
+}
+.article-page .lead{
+  color: var(--text-soft); font-size: 15px; margin-bottom: 24px;
+}
+.article-page .pr-label{
+  display: inline-block; font-size: 11px;
+  background: var(--bg-soft); color: var(--text-soft);
+  padding: 2px 10px; border-radius: 3px; margin-bottom: 16px;
+  letter-spacing: .15em;
+}
+.article-page h2{
+  font-size: 22px; margin: 48px 0 16px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--accent);
+}
+.article-page h3{ font-size: 18px; margin: 28px 0 12px; }
+.article-page p{ margin: 12px 0; }
+.article-page ul, .article-page ol{ padding-left: 24px; }
+.article-page li{ margin: 6px 0; }
+
+/* TOC */
+.toc{
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px 20px;
+  margin: 24px 0; font-size: 14px;
+}
+.toc-title{ font-weight: 600; margin-bottom: 8px; font-family: "Noto Serif JP", serif; }
+.toc ol{ margin: 0; padding-left: 20px; }
+
+/* Comparison table */
+.comparison{
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px; background: var(--white);
+  border: 1px solid var(--line);
+}
+.comparison th, .comparison td{
+  padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left;
+}
+.comparison thead th{
+  background: var(--bg-soft); font-family: "Noto Serif JP", serif;
+}
+.comparison td.center, .comparison th.center{ text-align: center; }
+
+/* Product card */
+.product{
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px;
+  margin: 28px 0; box-shadow: var(--shadow);
+}
+.product-head{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; margin-bottom: 12px;
+}
+.product-rank{
+  width: 44px; height: 44px; flex: 0 0 44px;
+  background: var(--accent); color: var(--white);
+  border-radius: 50%; display: flex;
+  align-items: center; justify-content: center;
+  font-family: "Noto Serif JP", serif; font-size: 18px; font-weight: 700;
+}
+.product-rank.silver{ background: #b8b3ac; }
+.product-rank.bronze{ background: #b48b6e; }
+.product-rank.other{ background: var(--text-soft); }
+.product h3{ flex: 1; margin: 0; font-size: 18px; }
+.product .price{
+  font-size: 13px; color: var(--text-soft); margin: 0 0 8px;
+}
+.product .price strong{ color: var(--text); font-size: 15px; }
+.product .summary{ margin: 8px 0 16px; }
+.product .specs{
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 4px 16px; font-size: 12px; color: var(--text-soft);
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+  padding: 10px 0; margin: 12px 0;
+}
+.product .specs span strong{ color: var(--text); margin-right: 4px; }
+
+.btn-row{
+  display: flex; gap: 12px; margin-top: 16px;
+}
+.btn{
+  flex: 1; display: inline-block;
+  text-align: center; padding: 12px 18px;
+  border-radius: var(--radius); font-size: 14px;
+  font-weight: 600; transition: opacity .2s, transform .2s;
+  text-decoration: none;
+}
+.btn:hover{ opacity: .85; transform: translateY(-1px); }
+.btn-amazon{ background: #ff9900; color: #fff; }
+.btn-amazon:hover{ color: #fff; }
+.btn-rakuten{ background: #bf0000; color: #fff; }
+.btn-rakuten:hover{ color: #fff; }
+
+@media (max-width: 540px){
+  .btn-row{ flex-direction: column; }
+  .product .specs{ grid-template-columns: 1fr; }
+}
+
+/* Pros / Cons box */
+.pros-cons{
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin: 16px 0;
+}
+.pros, .cons{
+  padding: 14px 16px; border-radius: var(--radius);
+  font-size: 13px;
+}
+.pros{ background: #f1f5e9; border-left: 3px solid #7a9a4f; }
+.cons{ background: #fbf0e8; border-left: 3px solid #c98a5d; }
+.pros strong, .cons strong{
+  display: block; margin-bottom: 6px; font-family: "Noto Serif JP", serif;
+}
+
+@media (max-width: 540px){
+  .pros-cons{ grid-template-columns: 1fr; }
+}
+
+/* CTA box at end */
+.cta-box{
+  background: var(--bg-soft); border-radius: var(--radius);
+  padding: 24px; text-align: center; margin: 40px 0;
+}
+.cta-box p{ margin: 0 0 12px; font-size: 14px; }
+
+/* ===== Footer ===== */
+.site-footer{
+  background: var(--text); color: var(--bg);
+  padding: 48px 24px 24px; margin-top: 80px;
+  text-align: center; font-size: 12px;
+}
+.site-footer a{ color: var(--bg); }
+.site-footer a:hover{ color: var(--accent); }
+.site-footer .links{ margin-bottom: 16px; }
+.site-footer .links a{ margin: 0 12px; }
+.site-footer .disclosure{
+  font-size: 11px; color: #b8a99c;
+  max-width: 720px; margin: 16px auto; line-height: 1.7;
+}
+.site-footer .copy{ color: #b8a99c; }
